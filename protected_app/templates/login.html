@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Protected Demo App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #007bff;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .msg {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #dc3545;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Login</h1>
+        <form method="post" action="/login">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Enter username" required>
+
+            <label>Password</label>
+            <input type="text" name="password" placeholder="Enter password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        {% if message %}
+        <div class="msg">{{ message }}</div>
+        {% endif %}
+
+        <p><strong>Demo valid credentials:</strong> admin / admin123</p>
+        <p><a href="/">← Back to Home</a></p>
+    </div>
+</body>
+</html>

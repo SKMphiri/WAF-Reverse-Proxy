@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Protected Demo App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #eee;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Fake Admin Panel</h1>
+        <p>This page exists only for demonstration/testing.</p>
+    </div>
+
+    <div class="card">
+        <h2>Login Attempts</h2>
+        {% if login_attempts %}
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Password</th>
+            </tr>
+            {% for item in login_attempts %}
+            <tr>
+                <td>{{ item.username }}</td>
+                <td>{{ item.password }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No login attempts yet.</p>
+        {% endif %}
+    </div>
+
+    <div class="card">
+        <h2>Comments</h2>
+        {% if comments %}
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Comment</th>
+            </tr>
+            {% for item in comments %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.comment }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No comments yet.</p>
+        {% endif %}
+    </div>
+
+    <div class="card">
+        <p><a href="/">← Back to Home</a></p>
+    </div>
+</body>
+</html>

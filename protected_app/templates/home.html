@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Protected Demo App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        ul {
+            line-height: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Protected Demo Web Application</h1>
+        <p>This is the application that will later be protected by the WAF.</p>
+        <p><strong>Use these routes to test attacks before and after the WAF.</strong></p>
+    </div>
+
+    <div class="card">
+        <h2>Available Routes</h2>
+        <ul>
+            <li><a href="/login">/login</a> - Fake login form</li>
+            <li><a href="/search?q=laptop">/search?q=laptop</a> - Search page</li>
+            <li><a href="/comment">/comment</a> - Comment submission page</li>
+            <li><a href="/admin">/admin</a> - Fake admin panel</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comments - Protected Demo App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #6f42c1;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .msg {
+            margin-top: 10px;
+            color: green;
+            font-weight: bold;
+        }
+        .comment {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Comments</h1>
+        <form method="post" action="/comment">
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Your name" required>
+
+            <label>Comment</label>
+            <textarea name="comment" rows="4" placeholder="Write your comment..." required></textarea>
+
+            <button type="submit">Submit Comment</button>
+        </form>
+
+        {% if message %}
+        <div class="msg">{{ message }}</div>
+        {% endif %}
+    </div>
+
+    <div class="card">
+        <h2>Submitted Comments</h2>
+        {% if comments %}
+            {% for item in comments %}
+                <div class="comment">
+                    <strong>{{ item.name }}</strong><br>
+                    {{ item.comment }}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No comments yet.</p>
+        {% endif %}
+        <p><a href="/">← Back to Home</a></p>
+    </div>
+</body>
+</html>
